@@ -1,3 +1,6 @@
+//Sun Sep 22 2024 15:10:36 GMT+0000 (Coordinated Universal Time)
+//Base:https://github.com/echo094/decode-js
+//Modify:https://github.com/smallfawn/decode_action
 const _0x49dfef = _0x5370a4("电信营业厅"),
   _0x8e0885 = require("got"),
   _0x203c4a = require("path"),
