@@ -16,7 +16,7 @@ let openId = ''
 let unionId = ''
 let type = '2'
 let type1 = '2'
-let YiLi_Code = ''
+let YiLi_Code = ['翟芳邀您来伊利拿礼','韩海莉邀您来伊利拿礼','郝银爱邀您来伊利拿礼','王素红邀您来伊利拿礼','黄思梦邀您来伊利拿礼','朱梦婷邀您来伊利拿礼','曹彩花邀您来伊利拿礼','何维邀您来伊利拿礼','杨慧庆邀您来伊利拿礼','廖艳邀您来伊利拿礼']
 let notice = ''
 !(async () => {
     if (typeof $request != "undefined") {
@@ -64,20 +64,16 @@ async function main() {
             console.log(`浏览：${seePage.message}`)
         }
         if (YiLi_Code.length) {
-            let authorize = await yiLiGet(/developer/oauth2/buyer/authorize?app_key=zdcade261b48eb4c5e)
+            let authorize = await yiLiGet(`/developer/oauth2/buyer/authorize?app_key=zdcade261b48eb4c5e`)
             if (authorize.data) {
                 for (var i = 0; i < YiLi_Code.length; i++) {
-                    let inputCode = await commonGet(/fragment/ticket/input-code?code=${encodeURIComponent(YiLi_Code[i])}&authorizationCode=${authorize.data}&openId=${openId}, 'aes')
-                    console.log(口令兑换：${YiLi_Code[i]} -> ${inputCode.message})
-                    if (inputCode.message === "口令有误") {
-                        console.log(错误口令：${YiLi_Code[i]})
-                        YiLi_Code.splice(i, 1)
-                        i--;
-                    }
+                    //console.log(aa[i]);
+                    let inputCode = await commonGet(`/fragment/ticket/input-code?code=${encodeURIComponent(YiLi_Code[i])}&authorizationCode=${authorize.data}&openId=${openId}`,'aes')
+                    console.log(`口令兑换：${inputCode.message}`)
                 }
             } else {
                 console.log(authorize?.error?.msg)
-                await sendMsg(用户：${mobile}\nyiliToken已过期，请重新获取);
+                await sendMsg(`用户：${mobile}\nyiliToken已过期，请重新获取`);
             }
         }
         let ticketGet = await commonGet(`/fragment/ticket/get?openId=${openId}`)
