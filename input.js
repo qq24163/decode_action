@@ -1,4 +1,4 @@
-/**
+/*
  * 品赞HTTP代理签到v1.1
  * const $ = new Env("品赞HTTP代理签到");
  * cron 0 0 * * 0  品赞HTTP代理签到.js
