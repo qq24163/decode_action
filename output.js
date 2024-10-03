@@ -1,4 +1,4 @@
-//Wed Oct 02 2024 14:20:30 GMT+0000 (Coordinated Universal Time)
+//Thu Oct 03 2024 06:43:36 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const _0xf1ea8 = new _0x299988("品赞HTTP签到");
