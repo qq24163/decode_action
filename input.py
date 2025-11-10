@@ -1,9 +1,3 @@
-"""
-小程序链接：https://m.360buyimg.com/i/jfs/t1/337082/12/20276/60164/68ff2091F7c109248/b89fb1f328652dfe.jpg
-变量: hsy_username (www.52bjy.com请求url参数中的username) 多个账号用换行分割 
-定时: 一天一次
-cron: 10 8 * * *
-"""
 
 DEFAULT_WITHDRAW_BALANCE = 1 # 默认超过该金额进行提现，需大于等于1
 
