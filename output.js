@@ -1,4 +1,4 @@
-//Wed Jan 28 2026 12:56:07 GMT+0000 (Coordinated Universal Time)
+//Wed Jan 28 2026 12:57:41 GMT+0000 (Coordinated Universal Time)
 //Base:https://github.com/echo094/decode-js
 //Modify:https://github.com/smallfawn/decode_action
 const crypto = require("crypto");
@@ -46,11 +46,15 @@ function multiLayerDecrypt(encryptedStr, masterKey) {
       const salt = Buffer.from(salts[algo], "base64");
       switch (algo) {
         case "AES-256-GCM":
-          decrypted = aes256GcmDecrypt(decrypted, masterKey, salt);
-          break;
+          {
+            decrypted = aes256GcmDecrypt(decrypted, masterKey, salt);
+            break;
+          }
         case "ChaCha20-Poly1305":
-          decrypted = chacha20Decrypt(decrypted, masterKey, salt);
-          break;
+          {
+            decrypted = chacha20Decrypt(decrypted, masterKey, salt);
+            break;
+          }
       }
     }
     return decrypted;
